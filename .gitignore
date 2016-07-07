@@ -1,8 +1,29 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Eclipse
+.settings
+.project
+.buildpath
+
+# phpstorm
 .idea
-/wiki
+
 /vendor
 /node_modules
-/public/storage
+/public/build
+/public/uploads
+/storage
+_ide_helper.php
 Homestead.yaml
 Homestead.json
 .env
+.idea/*
+wiki
+wiki/*
+data
+data/*
+logs
+logs/*

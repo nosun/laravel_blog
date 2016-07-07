@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('account','AccountController@showList');
+Route::post('account','AccountController@AjaxAdd');
+Route::put('account','AccountController@AjaxEdit');
+Route::delete('account','AccountController@AjaxDelete');
