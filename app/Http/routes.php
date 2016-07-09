@@ -21,5 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('account','AccountController@showList');
 Route::post('account','AccountController@AjaxAdd');
-Route::put('account','AccountController@AjaxEdit');
-Route::delete('account','AccountController@AjaxDelete');
+Route::get('account/{id}','AccountController@show');
+Route::put('account/{id}','AccountController@AjaxEdit');
+Route::delete('account/{id}','AccountController@AjaxDelete');
+
+Route::get('test','TestController@index');

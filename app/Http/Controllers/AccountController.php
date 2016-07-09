@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\Account;
+use App\Helpers\Ajax;
 
 class AccountController extends Controller
 {
@@ -15,21 +16,47 @@ class AccountController extends Controller
 
 	public function showList(){
 		$accounts = Account::all();
-		return view('accounts')->with('accounts',$accounts);
+		return view('accountList')->with('accounts',$accounts);
 	}
 
-	public function AjaxAdd(){
+	public function show($id){
+		$account = Account::find($id);
 
+		if(!$account){
+			abort(404);
+		}
 
+		return view('account')->with('account',$account);
 	}
 
-	public function AjaxEdit(){
+	public function AjaxAdd(Request $request){
+		$account = new Account();
+		$result  = $account->fill($request->all())->save();
 
-
+		if($result){
+			return Ajax::success();
+		}else{
+			return Ajax::serverError('db error');
+		}
 	}
 
-	public function AjaxDelete(){
+	public function AjaxEdit(Request $request, $id){
+		$account = Account::find($id);
+		$result  = $account->fill($request->all())->save();
+		if($result){
+			return Ajax::success();
+		}else{
+			return Ajax::serverError('db error');
+		}
+	}
 
+	public function AjaxDelete($id){
+		$result = Account::destroy($id);
+		if($result){
+			return Ajax::success();
+		}else{
+			return Ajax::serverError('db error');
+		}
 
 	}
 }
