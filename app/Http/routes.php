@@ -1,20 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+// index
+Route::get('/', 'PageController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// home
+Route::get('/home', 'HomeController@index');
 
+
+// auth
 Route::get('login', 'Auth\AuthController@showLoginForm');
 Route::post('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout');
@@ -28,12 +21,27 @@ Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
-Route::get('/home', 'HomeController@index');
 
+// account
 Route::get('account','AccountController@showList');
 Route::post('account','AccountController@AjaxAdd');
 Route::get('account/{id}','AccountController@show');
 Route::put('account/{id}','AccountController@AjaxEdit');
 Route::delete('account/{id}','AccountController@AjaxDelete');
 
+// service
+Route::get('service','ServiceController@showList');
+Route::post('service','ServiceController@AjaxAdd');
+Route::get('service/{id}','ServiceController@show');
+Route::put('service/{id}','ServiceController@AjaxEdit');
+Route::delete('service/{id}','ServiceController@AjaxDelete');
+
+// blog
+Route::get('blog','ArticleController@showList');
+Route::post('blog','ArticleController@AjaxAdd');
+Route::get('blog/{id}','ArticleController@show');
+Route::put('blog/{id}','ArticleController@AjaxEdit');
+Route::delete('blog/{id}','ArticleController@AjaxDelete');
+
+// fortest
 Route::get('test','TestController@index');
