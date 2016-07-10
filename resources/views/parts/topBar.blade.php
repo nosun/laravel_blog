@@ -19,9 +19,11 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="/account">账户管理</a></li>
-                <li><a href="/service">服务管理</a></li>
-                <li><a href="/logs">日志管理</a></li>
+                @if (Auth::user())
+                    <li><a href="/account">账户</a></li>
+                    <li><a href="/service">服务</a></li>
+                    <li><a href="/logs">日志</a></li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -29,7 +31,6 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">登录</a></li>
-                    <li><a href="{{ url('/register') }}">注册</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
