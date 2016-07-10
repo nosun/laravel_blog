@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">电子邮件</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">密码</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password">
@@ -37,6 +37,26 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">验证码</label>
+
+                            <div class="col-md-6">
+                                <img id="captcha_img" src="{{ captcha_src() }}" alt="captcha" onclick="refresh()"/>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+                            <label for="captcha" class="col-md-4 control-label"></label>
+
+                            <div class="col-md-6">
+                                <input id="captcha" type="text" class="form-control" name="captcha" placeholder="请输入验证码" required>
+
+                                @if ($errors->has('captcha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('captcha') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -44,8 +64,7 @@
                                     <label>
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
-                                </div>
-                            </div>
+                            </div> </div>
                         </div>
 
                         <div class="form-group">
@@ -63,4 +82,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('user_js')
+<script type="text/javascript">
+    function refresh(){
+        document.getElementById("captcha_img").src = "/captcha/default?" + Math.random();
+    }
+</script>
+
 @endsection
