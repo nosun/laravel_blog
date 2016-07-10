@@ -41,7 +41,7 @@
                             <label class="col-md-4 control-label">验证码</label>
 
                             <div class="col-md-6">
-                                <img id="captcha_img" src="{{ captcha_src() }}" alt="captcha" onclick="refresh()"/>
+                                <img id="captcha_img" src="{{ captcha_src('mini') }}" alt="captcha" onclick="refresh()"/>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
@@ -87,7 +87,7 @@
 @section('user_js')
 <script type="text/javascript">
     function refresh(){
-        document.getElementById("captcha_img").src = "/captcha/default?" + Math.random();
+        document.getElementById("captcha_img").src = "/captcha/mini?" + Math.random();
     }
 </script>
 

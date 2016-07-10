@@ -18,15 +18,15 @@
             <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>name</th>
-                        <th>type</th>
-                        <th>belong</th>
-                        <th>address</th>
-                        <th>account</th>
-                        <th>password</th>
+                        <th width="10%">name</th>
+                        <th width="10%">type</th>
+                        <th width="10%">belong</th>
+                        <th width="20%">address</th>
+                        <th width="20%">account</th>
+                        <th width="20%">password</th>
                         <th class="hidden">tag</th>
                         <th class="hidden">info</th>
-                        <th>action</th>
+                        <th width="10%">action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +71,7 @@
         $(document).ready(function() {
             $('table').DataTable({
                 "order": [ 1, "desc" ],
-                "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
+                "lengthMenu": [[150, 300, 500, -1], [150, 300, 500, "All"]],
                 "paging":true,
                 "bFilter": true
             });
@@ -140,7 +140,7 @@
                 // using the done promise callback
                 .done(function (data) {
                     accountModal.find(".message").addClass('alert', 'alert-success').html('success');
-                    //setTimeout(reload, 500);
+                    setTimeout(reload, 500);
                 })
                 .fail(function (data) {
                     accountModal.find(".message").addClass('alert', 'alert-fail').html('action fail');
@@ -150,18 +150,18 @@
             deleteModal.on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 id = button.data('id'); // Extract info from data-* attributes
-                accountModal.attr('data-id',id);
+                deleteModal.find('#modal-cont').val(id);
             });
 
             $("#deleteIt").on('click', function (event) {
-                id = accountModal.attr('data-id',id);
+                id = deleteModal.find("#modal-cont").val();
                 $.ajax({
                     type: "DELETE",
                     url: "/account/" + id,
                     dataType: "json",
                     success: function (data) {
                         if (data.code == 200) {
-                            $('#delMsg').html('您已经成功删除该信息')
+                            deleteModal.find('.message').html('您已经成功删除该信息')
                         }
                         setTimeout(reload, 500);
                     }
