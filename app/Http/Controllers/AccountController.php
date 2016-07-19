@@ -16,7 +16,7 @@ class AccountController extends Controller
     }
 
 	public function showList(){
-		$accounts = Account::where('uid',Auth::user()->id)->get();
+		$accounts = Account::where('uid',Auth::user()->id)->orWhere('belong','md')->get();
 		return view('accountList')->with('accounts',$accounts);
 	}
 
