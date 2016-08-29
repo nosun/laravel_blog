@@ -157,6 +157,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        App\Providers\AdminViewServiceProvider::class,
 
 
 

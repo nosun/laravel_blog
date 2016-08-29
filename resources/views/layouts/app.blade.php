@@ -1,24 +1,40 @@
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @yield('metaMore')
-    <title>Blog</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/libs/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
-    @yield('user_css')
-</head>
-<body id="app-layout">
-    @include('parts/topBar')
-    @yield('content')
-    <!-- JavaScripts -->
-    <script src="/libs/jquery/jquery-2.2.3.min.js"></script>
-    <script src="/libs/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
-    {{--<script src="{{ elixir('js/app.js') }}"></script>--}}
-    @yield('user_js')
+@section('htmlheader')
+    @include('layouts.partials.htmlheader')
+@show
+<body class="skin-blue sidebar-mini">
+<div class="wrapper">
+    @include('layouts.partials.mainheader')
+    @include('layouts.partials.sidebar')
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        @include('layouts.partials.contentheader')
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Your Page Content Here -->
+            @yield('main-content')
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+    @include('layouts.partials.controlsidebar')
+
+    @include('layouts.partials.footer')
+
+</div>
+<!-- ./wrapper -->
+
+@section('scripts')
+    @include('layouts.partials.scripts')
+@show
+@yield('user_js')
 </body>
 </html>

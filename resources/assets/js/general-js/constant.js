@@ -1,0 +1,2 @@
+;var adminJs = window.adminJs || {};
+adminJs.constant = {"activityRangeAll":1,"activityRangeTerm":2,"activityTypeTopic":1,"activityTypePromotion":2,"activityTypeCoupon":3,"promotionTypeProduct":1,"promotionTypeCart":2,"promotionBenefitDiscount":1,"promotionBenefitReduction":2,"promotionBenefitFree":3,"promotionLimitNone":1,"promotionLimitFUllPrice":2,"promotionLimitFUllNumber":3,"couponLimitNone":1,"couponLimitFullPrice":2,"couponLimitFullNumber":3,"couponStatusUnused":0,"couponStatusLocked":1,"couponStatusUsed":2};

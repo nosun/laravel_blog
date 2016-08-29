@@ -3,7 +3,7 @@
     @include('parts/ajaxMeta')
 @endsection
 @section('user_css')
-<link rel="stylesheet" href="/libs/DataTables/1.10.12/media/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="/lib/DataTables/1.10.12/media/css/dataTables.bootstrap.min.css">
 @endsection
 @section('content')
 <div class="container">
@@ -65,8 +65,8 @@
 @endsection
 
 @section('user_js')
-    <script src="/libs/DataTables/1.10.12/media/js/jquery.dataTables.min.js" ></script>
-    <script src="/libs/DataTables/1.10.12/media/js/dataTables.bootstrap.min.js" ></script>
+    <script src="/lib/DataTables/1.10.12/media/js/jquery.dataTables.min.js" ></script>
+    <script src="/lib/DataTables/1.10.12/media/js/dataTables.bootstrap.min.js" ></script>
     <script type="text/javascript" >
         $(document).ready(function() {
             $('table').DataTable({
