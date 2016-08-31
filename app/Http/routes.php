@@ -29,19 +29,14 @@ Route::get('account/{id}','AccountController@show');
 Route::put('account/{id}','AccountController@AjaxEdit');
 Route::delete('account/{id}','AccountController@AjaxDelete');
 
-// service
-Route::get('service','ServiceController@showList');
-Route::post('service','ServiceController@AjaxAdd');
-Route::get('service/{id}','ServiceController@show');
-Route::put('service/{id}','ServiceController@AjaxEdit');
-Route::delete('service/{id}','ServiceController@AjaxDelete');
-
 // blog
-Route::get('blog','ArticleController@showList');
-Route::post('blog','ArticleController@AjaxAdd');
-Route::get('blog/{id}','ArticleController@show');
-Route::put('blog/{id}','ArticleController@AjaxEdit');
-Route::delete('blog/{id}','ArticleController@AjaxDelete');
+//Route::get('blog','ArticleController@showList');
+//Route::post('blog','ArticleController@AjaxAdd');
+//Route::get('blog/{id}','ArticleController@show');
+//Route::put('blog/{id}','ArticleController@AjaxEdit');
+//Route::delete('blog/{id}','ArticleController@AjaxDelete');
 
 // fortest
 Route::get('test','TestController@index');
+
+Route::get('/menu/{id?}/{id2?}','MenuController@menu');

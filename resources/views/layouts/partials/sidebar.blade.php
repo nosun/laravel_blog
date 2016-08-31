@@ -12,50 +12,26 @@
                     <span>首页</span>
                 </a>
             </li>
-
-            <li class="treeview" data-menu="site">
-                <a href="#">
-                    <i class='fa fa-calendar'></i>
-                    <span>站点设置</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li data-menu="siteinfo">
-                        <a href="{{url('site/siteinfo')}}">
-                            <i class='fa fa-circle-o'></i>
-                            <span>站点信息</span>
-                        </a>
-                    </li>
-                    <li data-menu="mailserver">
-                        <a href="{{url('site/mailserver')}}">
-                            <i class='fa fa-circle-o'></i>
-                            <span>邮件服务器设置</span>
-                        </a>
-                    </li>
-                    <li data-menu="mail">
-                        <a href="{{url('site/mail')}}">
-                            <i class='fa fa-circle-o'></i>
-                            <span>邮件设置</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="treeview">
-                <a href="#">
+                <a href="{{ url('menu') }}">
                     <i class='fa fa-file-o'></i>
-                    <span>文章管理</span>
+                    <span>menu A</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">
-                            类别管理
+                        <a href="{{ url('menu/1') }}">
+                            menu1
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            内容管理
+                        <a href="{{ url('menu/1?key=val') }}">
+                            menu2
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('menu/1/3') }}">
+                            menu2
                         </a>
                     </li>
                 </ul>

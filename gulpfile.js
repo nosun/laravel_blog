@@ -24,7 +24,7 @@ elixir.extend('compress', function() {
 
 elixir(function(mix) {
     var buildJs = function(){
-        //mix.browserify(['common.js'],  'public/js/common.js');
+        mix.browserify(['common.js'],  'public/js/common.js');
         mix.scripts(['plugin-js/*.js', 'general-js/*.js','after-js/*.js'],  'public/js/app.js');
     };
 

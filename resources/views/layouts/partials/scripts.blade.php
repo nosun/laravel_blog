@@ -5,3 +5,4 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/admin-lte/app.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/common.js') }}" type="text/javascript"></script>
